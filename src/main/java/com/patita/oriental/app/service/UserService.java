@@ -4,6 +4,9 @@ import com.patita.oriental.app.model.User;
 
 
 public interface UserService {
+	
+    User addFavoriteProduct(Long userId, Long productId);
+    User removeFavoriteProduct(Long userId, Long productId);
 
 	/**
      * Recupera todos los usuarios de forma paginada.
@@ -42,4 +45,6 @@ public interface UserService {
      * @return Colección de usuarios encontrados
      */
     Iterable<User> getActiveUsers();
+    
+
 }

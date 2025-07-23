@@ -58,4 +58,23 @@ public class UserController {
 		userService.deleteById(id);
 		return ResponseEntity.noContent().build();
 	}
+	
+	@PutMapping("/{userId}/favorites/{productId}")
+	public ResponseEntity<User> addFavorite(
+	    @PathVariable("userId") Long userId,
+	    @PathVariable("productId") Long productId) {
+	    
+	    User user = userService.addFavoriteProduct(userId, productId);
+	    return ResponseEntity.ok(user);
+	}
+
+
+	@DeleteMapping("/{userId}/favorites/{productId}")
+	public ResponseEntity<User> removeFavorite(
+			@PathVariable("userId") Long userId,
+		    @PathVariable("productId") Long productId){
+	    User user = userService.removeFavoriteProduct(userId, productId);
+	    return ResponseEntity.ok(user);
+	}
+
 }
